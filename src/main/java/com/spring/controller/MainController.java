@@ -12,8 +12,4 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/profile")
-    public String fr(){
-        return "profile/index";
-    }
 }
