@@ -12,4 +12,21 @@ public class MainController {
         return "index";
     }
 
+    @GetMapping("/profile")
+    public String profile(){
+        return "profile/index";
+    }
+
+    @GetMapping("/manage")
+    public String management(){
+        return "management/index";
+    }
+
+    @GetMapping("/admin")
+    public String admin(){
+        return "admin/index";
+    }
+
+
+
 }
