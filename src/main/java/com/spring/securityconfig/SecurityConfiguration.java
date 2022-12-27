@@ -16,6 +16,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.client.RestTemplate;
+
+import javax.net.ssl.SSLContext;
 
 import static org.springframework.security.config.http.MatcherType.ant;
 import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
@@ -32,8 +35,8 @@ public class SecurityConfiguration {
         manager.createUser(
                 User.withUsername("anakin")
                         .password(encoder().encode("anakin201"))
-                        .roles("ADMIN")
-                        .authorities("ACCESS_BASIC1")
+                        //.roles("ADMIN")
+                        .authorities("ACCESS_BASIC1","ROLE_ADMIN")
                         .build()
         );
 
@@ -83,6 +86,9 @@ public class SecurityConfiguration {
     public static PasswordEncoder encoder(){
         return new BCryptPasswordEncoder();
     }
+
+
+
 
 }
 
