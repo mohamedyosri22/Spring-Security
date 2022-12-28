@@ -48,8 +48,8 @@ public class SecurityConfiguration {
         );
 
         manager.createUser(
-                User.withUsername("manager")
-                        .password(encoder().encode("manager201"))
+                User.withUsername("manger")
+                        .password(encoder().encode("manger201"))
                         .roles("MANGER")
                         .authorities("ACCESS_BASIC2")
                         .build()

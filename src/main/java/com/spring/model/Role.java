@@ -2,6 +2,7 @@ package com.spring.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -18,7 +19,7 @@ public class Role {
     private String roleName;
 
     @ManyToMany(mappedBy = "roles")
-    private List<User> users;
+    private List<User> users =new ArrayList<User>();
 
     public Role(String roleName) {
         this.roleName = roleName;

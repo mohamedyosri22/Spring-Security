@@ -2,6 +2,7 @@ package com.spring.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -38,7 +39,7 @@ public class User {
             joinColumns = {@JoinColumn(name="user_id")},
             inverseJoinColumns = {@JoinColumn(name="role_id")}
     )
-    private List<Role> roles;
+    private List<Role> roles = new ArrayList<Role>();
 
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -47,7 +48,7 @@ public class User {
             joinColumns = {@JoinColumn(name="user_id")},
             inverseJoinColumns = {@JoinColumn(name="auth_id")}
     )
-    private List<Authorities> authorities;
+    private List<Authorities> authorities = new ArrayList<Authorities>();
 
     public User() {
     }
