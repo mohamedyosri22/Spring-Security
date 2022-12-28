@@ -1,10 +1,13 @@
 package com.spring.securityconfig;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
@@ -28,9 +31,23 @@ import static org.springframework.security.web.util.matcher.AntPathRequestMatche
 @EnableWebSecurity
 public class SecurityConfiguration {
 
+    @Autowired
+    private UserService userService;
+/*
+    @Bean
+    DaoAuthenticationProvider authenticationProvider(){
+        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+        daoAuthenticationProvider.setPasswordEncoder(encoder());
+        daoAuthenticationProvider.setUserDetailsService(userService);
+        return daoAuthenticationProvider;
+    }*/
+
     @Bean
     public UserDetailsService userDetailsService() throws Exception{
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+
+        return userService;
+
+        /*InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
 
         manager.createUser(
                 User.withUsername("anakin")
@@ -54,8 +71,7 @@ public class SecurityConfiguration {
                         .authorities("ACCESS_BASIC2")
                         .build()
         );
-
-        return manager;
+        */
     }
 
 

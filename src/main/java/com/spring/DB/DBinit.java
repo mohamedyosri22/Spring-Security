@@ -26,8 +26,10 @@ public class DBinit implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        User user = userDao.findByUsername("anakin");
+        System.out.println(user.getAddress());
 
-        userDao.deleteAll();
+       /* userDao.deleteAll();
 
         User admin = new User("anakin","anakin201","20","alex",1);
         admin.setRoles(roleDao.findAll());
@@ -60,6 +62,6 @@ public class DBinit implements CommandLineRunner {
         user.getRoles().add(userRole);
 
         userDao.save(user);
-
+*/
     }
 }
