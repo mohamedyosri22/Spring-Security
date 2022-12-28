@@ -2,6 +2,7 @@ package com.spring.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Set;
 
 
@@ -17,5 +18,36 @@ public class Authorities {
     private String authoritieName;
 
     @ManyToMany(mappedBy = "authorities")
-    private Set<User> users;
+    private List<User> users;
+
+    public Authorities() {
+    }
+
+    public Authorities(String authoritieName) {
+        this.authoritieName = authoritieName;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getAuthoritieName() {
+        return authoritieName;
+    }
+
+    public void setAuthoritieName(String authoritieName) {
+        this.authoritieName = authoritieName;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
 }
