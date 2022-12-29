@@ -76,7 +76,7 @@ public class SecurityConfiguration {
 
 
 
-    @Bean
+    /*@Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(authCustomizer -> authCustomizer
@@ -96,7 +96,7 @@ public class SecurityConfiguration {
                 .build();
 
     }
-
+*/
 
     @Bean
     public static PasswordEncoder encoder(){
